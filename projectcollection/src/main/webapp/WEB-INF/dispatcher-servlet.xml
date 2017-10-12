@@ -11,14 +11,17 @@
    http://www.springframework.org/schema/context/spring-context.xsd
    http://www.springframework.org/schema/mvc
    http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+   
 <context:component-scan base-package="career.projectcollection.controller"/>
 <!-- <context:component-scan base-package=""/> -->
-<bean id="viewResolver"
-class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+
+<mvc:annotation-driven></mvc:annotation-driven>
+<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 <property name="prefix" value="/WEB-INF/views/"></property>
 <property name="suffix" value=".jsp"></property>
 
 </bean>
-<mvc:resources location="/assests/" mapping="/resources/**"></mvc:resources>
-<mvc:annotation-driven></mvc:annotation-driven>
+
+<mvc:resources location="/assets/" mapping="/resources/**"></mvc:resources>
+
 </beans>
