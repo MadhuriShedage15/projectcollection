@@ -8,6 +8,8 @@
 <sf:url var="js" value="/resources/js"/>
 <sf:url var="images" value="/resources/images"/>
 
+<c:set var="contextRoot" value="${pageContext.request.contextPath}"></c:set>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,6 +27,14 @@
 
     <!-- Custom styles for this template -->
     <link href="${css}/shop-homepage.css" rel="stylesheet">
+    
+    <link href="${css}/bootstarp_swatch.css" rel="stylesheet">
+    
+    <script type="text/javascript">
+	window.menu = '${title}';
+	window.contextRoot='${contextRoot}'
+</script>
+    
 
   </head>
 
@@ -33,14 +43,35 @@
     <%@include file="./shared/navbar.jsp"%>
     
     <!-- Page Content -->
+    <div class="content">
+    
+    <c:if test="${userClickAllProducts==true or userClickCategoryProducts==true}">
+				<%@include file="listProduct.jsp"%>
+			</c:if>
+    
+    <c:if test="${userClickHome==true}">
     <%@include file="home.jsp"%>
+    </c:if>
+    
+    <c:if test="${userClickAbout==true}">
+    <%@include file="about.jsp"%>
+    </c:if> 
+    
+    <c:if test="${userClickProduct==true}">
+    <%@include file="product.jsp"%>
+    </c:if> 
+    
+    <c:if test="${userClickWishlist==true}">
+    <%@include file="wishlist.jsp"%>
+    </c:if> 
     
     
+    <c:if test="${userClickContact==true}">
+    <%@include file="contact.jsp"%>
+    </c:if>
+   
     
-    
-    
-    
-    
+    </div>
     <!-- /.container -->
 <%@include file="./shared/footer.jsp"%>
     </div>
@@ -48,6 +79,7 @@
     <script src="${js}/jquery.min.js"></script>
     <script src="${js}/popper.min.js"></script>
     <script src="${js}/bootstrap.min.js"></script>
+    <script src="${js}/myapp.js"></script>
 
   </body>
 
