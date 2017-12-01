@@ -1,5 +1,7 @@
 package career.projectcollection.controller;
 
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,7 +15,7 @@ import career.projectcollectionbackend.dto.Category;
 public class PageController {
 	@Autowired
 	CategoryDAO categoryDAO;
-@RequestMapping(value={"/","/home"})	
+@RequestMapping(value={"/home","/"})	
 public ModelAndView show()
 {
 	ModelAndView mv=new ModelAndView("page");
@@ -81,6 +83,7 @@ public ModelAndView showCategoryProducts(@PathVariable("id")int id)
 	return mv;
 	
 }
+
 
 
 }

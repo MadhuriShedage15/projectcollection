@@ -6,13 +6,14 @@ import org.hibernate.SessionFactory;
 import org.hibernate.mapping.Value;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import career.projectcollectionbackend.dao.CategoryDAO;
 import career.projectcollectionbackend.dto.Category;
-@Repository
+@Repository("categoryDAO")
+@Transactional
 public class CategoryDAOimpl implements CategoryDAO {
-	@Autowired
-private CategoryDAO categoryDAO;
+
 	
 	@Autowired
 	SessionFactory sessionFactory;
@@ -28,18 +29,37 @@ private CategoryDAO categoryDAO;
 	}
 
 	public boolean add(Category category) {
-		// TODO Auto-generated method stub
+		
+		try
+		{
+		sessionFactory.getCurrentSession().save(category);
+		return true;
+		}
+		catch(Exception e) {
+			System.out.println(e);
 		return false;
+		}
 	}
 
 	public boolean update(Category category) {
-		// TODO Auto-generated method stub
-		return false;
+		try {
+			sessionFactory.getCurrentSession().update(category);
+			return true;
+			} catch (Exception e) {
+			return false;
+			}
+
 	}
 
 	public boolean delete(Category category) {
-		// TODO Auto-generated method stub
+		category.setActive(false);
+		try {
+		sessionFactory.getCurrentSession().update(category);
+		return true;
+		} catch (Exception e) {
 		return false;
+		}
+
 	}
 	
 

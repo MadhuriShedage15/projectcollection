@@ -13,7 +13,7 @@
    http://www.springframework.org/schema/mvc/spring-mvc.xsd">
    
 <context:component-scan base-package="career.projectcollection.controller"/>
-<!-- <context:component-scan base-package=""/> -->
+ <context:component-scan base-package="career.projectcollectionbackend"/> 
 
 <mvc:annotation-driven></mvc:annotation-driven>
 <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">

@@ -70,6 +70,10 @@
     <%@include file="contact.jsp"%>
     </c:if>
    
+     <c:if test="${userClickMangeProducts==true}">
+    <%@include file="manageProduct.jsp"%>
+    </c:if>
+   
     
     </div>
     <!-- /.container -->
@@ -79,6 +83,7 @@
     <script src="${js}/jquery.min.js"></script>
     <script src="${js}/popper.min.js"></script>
     <script src="${js}/bootstrap.min.js"></script>
+    <script src="${js}/jquery.dataTables.js"></script>
     <script src="${js}/myapp.js"></script>
 
   </body>
