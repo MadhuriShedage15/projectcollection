@@ -9,18 +9,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import career.projectcollectionbackend.dao.CategoryDAO;
+import career.projectcollectionbackend.dao.ProductDAO;
 import career.projectcollectionbackend.dto.Category;
+import career.projectcollectionbackend.dto.Product;
 
 @Controller
 public class PageController {
 	@Autowired
 	CategoryDAO categoryDAO;
+	
+	@Autowired
+	ProductDAO productDAO;
 @RequestMapping(value={"/home","/"})	
 public ModelAndView show()
 {
 	ModelAndView mv=new ModelAndView("page");
 	mv.addObject("title","Home");
 	mv.addObject("userClickHome",true);
+	mv.addObject("categories",categoryDAO.list());
 	return mv;
 }
 @RequestMapping(value="/about")
@@ -48,13 +54,25 @@ public ModelAndView product()
 	mv2.addObject("userClickProduct",true);
 	return mv2;
 }
-@RequestMapping(value="/wishlist")
+/*@RequestMapping(value="/wishlist")
 public ModelAndView wishlist()
 {
 	ModelAndView mv2=new ModelAndView("page");
 	mv2.addObject("title","Wishlist");
 	mv2.addObject("userClickWishlist",true);
 	return mv2;
+}*/
+
+@RequestMapping(value="show/{id}/product")
+public ModelAndView showSingleProject(@PathVariable("id") int id)
+{
+	ModelAndView mv=new ModelAndView("page");
+		Product product=productDAO.get(id);
+		mv.addObject(product);
+		mv.addObject("title",product.getName());
+		mv.addObject("product",product);
+		mv.addObject("userClickShowProduct",true);
+		return mv;
 }
 @RequestMapping(value="/show/all/products")
 public ModelAndView showAllProducts()

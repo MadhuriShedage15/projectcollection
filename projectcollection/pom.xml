@@ -3,8 +3,8 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>career</groupId>
   <artifactId>projectcollection</artifactId>
-  <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
   <name>projectcollection Maven Webapp</name>
   <properties>
   <javaee.version>7.0</javaee.version>

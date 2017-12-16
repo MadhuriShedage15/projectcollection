@@ -89,7 +89,7 @@ String selectActiveProduct="FROM Product WHERE active=:active";
 		return sessionFactory.getCurrentSession()
 				.createQuery(selectActiveProductByCategory,Product.class)
 				.setParameter("active", true)
-				.setParameter("categoryID", categoryId)
+				.setParameter("categoryId", categoryId)
 				.getResultList();
 	}
 

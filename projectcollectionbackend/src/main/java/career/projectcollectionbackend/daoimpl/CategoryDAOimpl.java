@@ -2,8 +2,9 @@ package career.projectcollectionbackend.daoimpl;
 
 import java.util.List;
 
+import javax.persistence.Query;
+
 import org.hibernate.SessionFactory;
-import org.hibernate.mapping.Value;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,8 +25,11 @@ public class CategoryDAOimpl implements CategoryDAO {
 	}
 
 	public List<Category> list() {
-		// TODO Auto-generated method stub
-		return null;
+		String selectHQL="FROM Category where active=:active";
+		Query query= sessionFactory.getCurrentSession().createQuery(selectHQL);
+	    query.setParameter("active", true);
+	    return query.getResultList();
+	
 	}
 
 	public boolean add(Category category) {

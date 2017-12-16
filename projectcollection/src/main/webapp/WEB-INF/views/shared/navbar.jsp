@@ -27,14 +27,16 @@
               <a class="nav-link" href="/projectcollection/about">About</a>
             </li>
             
-            <li class="nav-item" id="product">
+            <!-- <li class="nav-item" id="product">
               <a class="nav-link" href="/projectcollection/product">Product</a>
-            </li>
+            </li> -->
             
-            <li class="nav-item" id="wishlist">
-              <a class="nav-link" href="/projectcollection/wishlist">WishList</a>
-            </li>
             
+            
+           
+           <li class="nav-item" id="ShowProduct">
+              <a class="nav-link" href="/projectcollection/show/all/products">ViewProduct</a>
+            </li>
             
             <li class="nav-item" id="contact">
               <a class="nav-link" href="/projectcollection/contact">Contact</a>
